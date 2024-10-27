@@ -6,6 +6,7 @@ import {restroData} from "./utils/restro_Object.js"
 //header
 import { Header } from "./Components/Header.js";
 import { CardContainer } from "./Components/CardContainer.js";
+import { Body } from "./Components/Body.js";
 
 
 
@@ -13,12 +14,15 @@ import { CardContainer } from "./Components/CardContainer.js";
 
 
 
-const AppLayout = () =>(
+const AppLayout = () =>{
+    console.log(<Body/>)
+    return (
+    //
     <div>
         <Header/>
-        <CardContainer/>
+        <Body/>
     </div>
-);
+)};
 
 
 

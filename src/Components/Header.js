@@ -1,5 +1,8 @@
+import { useState } from "react";
 import { logo } from "../utils/constants";
-export const Header = () =>(
+export const Header = () =>{
+    const[status, setStatus] = useState("Login");
+    return(
     <div className="headerContainer">
         <div className="logoContainer">
             <img src= {logo} alt="appLogo" className="logo"/>
@@ -10,7 +13,9 @@ export const Header = () =>(
                 <li>About Us</li>
                 <li>Contact Us</li>
                 <li>Cart</li>
+                <button onClick={()=>{status==="Login"? setStatus("Logout") : setStatus("Login")}}>{status}</button>
             </ul>
         </div>
     </div>
-);
+)
+}

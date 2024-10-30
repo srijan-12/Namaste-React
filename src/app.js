@@ -15,7 +15,6 @@ import { Body } from "./Components/Body.js";
 
 
 const AppLayout = () =>{
-    console.log(<Body/>)
     return (
     //
     <div>

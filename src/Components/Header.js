@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { logo } from "../utils/constants";
+import { Link } from "react-router-dom";
+import { useActiveStatus } from "../utils/custom hooks/useActiveStatus"
 export const Header = () =>{
     const[status, setStatus] = useState("Login");
+
+    const Status = useActiveStatus();
     return(
     <div className="headerContainer">
         <div className="logoContainer">
@@ -9,10 +13,12 @@ export const Header = () =>{
         </div>
         <div className="navBar">
             <ul>
-                <li>Home</li>
-                <li>About Us</li>
-                <li>Contact Us</li>
-                <li>Cart</li>
+                <li>Active : {Status ? "🟢" : "🔴"}</li>
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/">Contact Us</Link></li>
+                <li><Link to="/">Cart</Link></li>
+                <li><Link to="/grocery">Grocery</Link></li>
                 <button onClick={()=>{status==="Login"? setStatus("Logout") : setStatus("Login")}}>{status}</button>
             </ul>
         </div>

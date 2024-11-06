@@ -5,10 +5,13 @@ import {TopRated} from "./TopRated"
 import { swiggyAPI } from "../utils/constants"
 import CardShimmer from "./CardShimmer"
 import Search from "./Search"
+import { useActiveStatus } from "../utils/custom hooks/useActiveStatus"
 export const Body = ()=>{
     const[restroDataState, setRestroDataState] = useState([]);
     const[restroDataStateCopy, setRestroDataStateCopy] = useState([]);
     const[searchedText, setSearchedText] = useState("");
+
+    const Status = useActiveStatus();
 
     const filterFunction = () =>{
         const newRestroList = restroDataState.filter((resList)=> resList.info.name.toLowerCase().includes(searchedText.toLowerCase()));
@@ -34,6 +37,11 @@ export const Body = ()=>{
     if(restroDataState.length === 0){
         return <CardShimmer/>
     }
+
+    if(!Status){
+        return <h1>No internet connection!</h1>
+    }
+
     return restroDataState.length === 0 ? <CardShimmer/> :(
         <div className="body">
             <div className="bodyPart1">

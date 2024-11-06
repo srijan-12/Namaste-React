@@ -55,3 +55,12 @@
     justify-content: space-between;
     margin: 1rem 2rem;
 }
+.restroBox{
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    padding: 2%;
+}
+.cuisines{
+    color: #FF5200;
+    text-decoration: underline;
+}

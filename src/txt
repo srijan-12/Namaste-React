@@ -1,0 +1,12 @@
+<div className="menuDiv">
+                {menuArr === null ? <p>Nothing to show</p> : menuArr.map((category)=>{
+                    return(
+                        <div key={category.title.toUpperCase()}>
+                            <h4 key={category.title.toLowerCase()}>{category.title}</h4>
+                            <ul>
+                            {category.itemCards.map((item)=> <li key={item.card.info.id}>{item.card.info.name}</li>)}
+                            </ul>
+                        </div>
+                    )
+                })}
+            </div>

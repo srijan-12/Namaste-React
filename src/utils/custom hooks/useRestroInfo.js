@@ -16,8 +16,8 @@ export const useRestroInfo = (id) =>{
         const jsonDataX = await data.json();
         setRestroInfo(jsonDataX.data.cards[2].card.card.info);
         const menu =jsonDataX.data.cards[5].groupedCard.cardGroupMap.REGULAR.cards;
-        const finalMenu = menu.slice(1);
-        // console.log(finalMenu);
+        const finalMenu = menu.filter((eachMenuItem)=> eachMenuItem?.card?.card?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory")
+        console.log(finalMenu);
         // finalMenu.map((item)=> console.log(item.card.card.title));
         setRestroMenu(finalMenu);
     }

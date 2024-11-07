@@ -1,12 +1,11 @@
 export const TopRated = (props) =>{
-    const{restroDataState, setRestroDataState} = props;
+    const{restroDataState, setRestroDataState,restroDataStateCopy, setRestroDataStateCopy} = props;
     return(
-        <div className="trBtn">
+        <div className="trBtn border p-2 rounded-md bg-green-500 text-white">
             <button className="topRatedBtn" onClick={ ()=>{
-                console.log(restroDataState)
-                const newList = restroDataState.filter((data)=>data.info.avgRating > 4.3);
+                const newList = restroDataState.filter((data)=>data.info.avgRating > 4);
                 console.log(newList);
-                setRestroDataState(newList);
+                setRestroDataStateCopy(newList);
             }
             }>Top Rated</button>
         </div>

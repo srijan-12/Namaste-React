@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { restroData } from "../utils/restro_Object"
 import { CardContainer } from "./CardContainer"
 import {TopRated} from "./TopRated"
 import { swiggyAPI } from "../utils/constants"
@@ -44,8 +43,9 @@ export const Body = ()=>{
 
     return restroDataState.length === 0 ? <CardShimmer/> :(
         <div className="body">
-            <div className="bodyPart1">
-                <TopRated restroDataState={restroDataState} setRestroDataState={setRestroDataState}/>
+            <div className="bodyPart1 flex justify-center space-x-20 mt-6">
+                <TopRated restroDataState={restroDataState} setRestroDataState={setRestroDataState} 
+                restroDataStateCopy={restroDataStateCopy} setRestroDataStateCopy={setRestroDataStateCopy}/>
                 <Search searchedText={searchedText} setSearchedText={setSearchedText} filterFunction={filterFunction}/>
             </div>
            <CardContainer restroDataState={restroDataState} restroDataStateCopy={restroDataStateCopy}/>

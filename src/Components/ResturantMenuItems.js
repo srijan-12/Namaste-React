@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { restroCdns } from "../utils/constants";
 import { ResturantMenuDescription } from "./ResturantMenuDescription";
-export const ResturantMenu = ({itemArray}) =>{
+export const ResturantMenuItems = ({itemArray}) =>{
     return (
         <div>
             {itemArray.map((item)=>{

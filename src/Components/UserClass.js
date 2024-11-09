@@ -1,4 +1,6 @@
 import React from "react";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 export class UserClass extends React.Component{
     constructor(props){
         super(props);
@@ -15,6 +17,11 @@ export class UserClass extends React.Component{
             <div>
                 <h1>{name}</h1>
                 <h2>{location}</h2>
+                <div>
+                        <UserContext.Consumer>
+                            {({loggedInUser})=><h2>{loggedInUser}</h2>}
+                        </UserContext.Consumer>
+                </div>
                 <h4>This is class based component</h4>
                 <h3>count : {this.state.count}</h3>
                 <h3>count1 : {this.state.count1}</h3>

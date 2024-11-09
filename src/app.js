@@ -1,6 +1,6 @@
 // const React = require("react");
 // const ReactDOM = require("react-dom")
-import React, {lazy,Suspense} from "react"
+import React, {lazy,Suspense, useContext, useState} from "react"
 import ReactDOM from "react-dom/client"
 //header
 import { Header } from "./Components/Header.js";
@@ -11,13 +11,22 @@ import { About } from "./Components/About.js";
 import { Error } from "./Components/Error.js";
 import { Restaurant } from "./Components/Resturant.js";
 const Grocery = lazy(()=> import("./Components/Grocery.js"));
+import { UserContext } from "./Components/UserContext.js";
+
+
+
 const AppLayout = () =>{
+    const {loggedInUser} = useContext(UserContext);
+    const[userName, setUsername] = useState(loggedInUser);
+    console.log(loggedInUser)
     return (
-    //
-    <div className="mx-4 my-0">̦
+    <UserContext.Provider value={{loggedInUser:userName, setUsername}}>
+        <div className="mx-4 my-0">̦
         <Header/>
         <Outlet/>
-    </div>
+        </div>
+        </UserContext.Provider>
+    
 )};
 
 

@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { logo } from "../utils/constants";
 import { Link } from "react-router-dom";
 import { useActiveStatus } from "../utils/custom hooks/useActiveStatus"
+import { UserContext } from "./UserContext";
 export const Header = () =>{
     const[status, setStatus] = useState("Login");
-
+    const{loggedInUser,setUsername} = useContext(UserContext);
     const Status = useActiveStatus();
+    console.log(loggedInUser);
     return(
     <div className="headerContainer flex justify-between border-bottom align-center shadow-lg mt-0 rounded-xl">
         <div className="logoContainer">
@@ -20,6 +22,10 @@ export const Header = () =>{
                 <li><Link to="/">Cart</Link></li>
                 <li><Link to="/grocery">Grocery</Link></li>
                 <li><button onClick={()=>{status==="Login"? setStatus("Logout") : setStatus("Login")}}>{status}</button></li>
+                <li><Link>{loggedInUser}</Link></li>
+                <li><input className="border p-2" value={loggedInUser} onChange={(e)=>{
+                            setUsername(e.target.value)
+                }}></input></li>
             </ul>
         </div>
     </div>

@@ -1,9 +1,12 @@
 import { Link } from "react-router-dom";
 import { restroCdns } from "../utils/constants";
+import { useContext } from "react";
+import { UserContext } from "./UserContext";
 
 export const Card = (props) =>{
     const {data} = props;
     const {cloudinaryImageId, name, cuisines, avgRating, sla,id} = data.info;
+    const{loggedInUser} = useContext(UserContext)
     return(
         <Link to={`/resturants/${id}`}>
     <div className="card border w-72 mx-8 my-8 px-4 py-3 rounded-lg h-[450px]" onClick={()=>{
